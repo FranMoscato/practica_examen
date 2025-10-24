@@ -3,6 +3,11 @@ from abc import ABC, abstractmethod
 from typing import List
 import os
 import json
+from config_singleton import *
+
+config = ConfigClass()
+config.load_config_data("cnfig.yml")
+
 
 class Context():
 
@@ -84,16 +89,16 @@ class ShippingStrategy(ABC):
 
 class LocalShippingStrategy(ShippingStrategy):
     def calculate_base_cost(self, peso: float) -> float:
-        return 5 + peso * 1
+        return config.local_fix + peso * config.local_var
 
 
 class NationalShippingStrategy(ShippingStrategy):
     def calculate_base_cost(self, peso: float) -> float:
-        return 10 + peso * 2
+        return config.national_fix + peso * config.national_var
     
 class InternationalShippingStrategy(ShippingStrategy):
     def calculate_base_cost(self, peso: float) -> float:
-        return 25 + peso * 5
+        return config.international_fix + peso * config.international_var
     
 
 
@@ -126,7 +131,7 @@ class NewUserStrategy(DiscountStrategy):
 
 if __name__ == "__main__":
     current_dir = os.getcwd()
-    folder_path = os.path.join(current_dir, "input.json")
+    folder_path = os.path.join(current_dir, "input_test.json")
 
     with open(folder_path, "r", encoding="utf-8") as f:
         data = json.load(f)
