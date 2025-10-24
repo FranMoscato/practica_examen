@@ -1,7 +1,7 @@
 parameters:
   local_fix: 5
   national_fix: 10
-  international_fix: 26
+  international_fix: 25
 
   local_var: 1
   national_var: 2
