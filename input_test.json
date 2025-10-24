@@ -1,0 +1,8 @@
+{
+"items": [
+{ "id": 1, "weight_kg": 0.5, "category": "electronics" },
+{ "id": 2, "weight_kg": 2.0, "category": "books" }
+],
+"destination": "international",
+"coupon": "PRIME_USER"
+}
