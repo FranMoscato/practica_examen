@@ -29,6 +29,7 @@ class ConfigClass(metaclass=SingletonMeta):
 
 if __name__ == "__main__":
     # The client code.
+    # Agg esto porque no quiero romper nada
 
     s1 = ConfigClass()
     s2 = ConfigClass()
